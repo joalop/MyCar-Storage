@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Archivo</title>
+</head>
+<body>
+    <h2>Subir Archivo</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" name="fileInput" accept="image/*">
+        
+        <!-- Select para elegir la carpeta de destino -->
+         <strong> <a href="/image1">Ir a imagenes General</a> </strong>
+        <br><br>
+        <label for="folderSelect">Elegir Carpeta de Destino:</label>
+        <br>
+        <select id="folderSelect" name="folderSelect">
+            <option value="uploads1">New Photos</option>
+            <option value="uploads2">Old Photos</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="uploadFile()">Subir Archivo</button>
+        <button type="button" onclick="createFile()"> Crear .JSON</button>
+    </form>
+    
+    <script>
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const folderSelect = document.getElementById('folderSelect').value;
+
+            // Crear un nuevo FormData
+            const formData = new FormData();
+            
+            // Agregar el archivo seleccionado
+            formData.append('fileInput', fileInput.files[0]);
+            
+            // Agregar el valor de folderSelect al FormData
+            formData.append('folderSelect', folderSelect);
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+                console.log(result);
+            } catch (error) {
+                console.error('Error al subir el archivo:', error);
+            }
+        }
+    </script>
+
+    <script>
+        async function createFile(){
+            await fetch('/list',{
+                method: 'POST',
+            })
+        }
+    </script>
+
+</body>
+</html>

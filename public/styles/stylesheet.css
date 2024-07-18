@@ -1,0 +1,53 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
+main{
+    width: fit-content;
+    height: fit-content;
+    justify-content: center;
+    align-content: center;
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+img{
+    width: 900px;
+    width: 760px;
+
+    margin: 0.5rem;
+
+    /* 
+    border: 1px solid black;
+    */
+    border-radius: 2.5%;
+}
+div{
+    position: relative;
+    background: #000;
+    padding: 8px 8px;
+    border: 1px solid #fff;
+}
+div button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.5px;
+
+    background-color: darkred;
+    color: whitesmoke;
+
+    font-weight: bold;
+
+    border-radius: 25%;
+}
