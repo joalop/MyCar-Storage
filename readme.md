@@ -14,7 +14,7 @@ PROJECT
 | | | | · json
 | | | | · src
 | | · styles
-| | | · index.html
+| | | · stylesheet.css
 | | · index.html
 | | · NewPhotos.html
 | | · OldPhotas.html
