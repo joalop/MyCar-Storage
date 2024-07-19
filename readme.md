@@ -15,6 +15,9 @@ PROJECT
 | | | | · src
 | | · styles
 | | | · index.html
+| | · index.html
+| | · NewPhotos.html
+| | · OldPhotas.html
 | · views
 | · .gitignore
 | · .yaml
