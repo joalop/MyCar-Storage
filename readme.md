@@ -1,16 +1,17 @@
 ```
 ```
+>
 - Public
 >> gallery
 >>> Camera
-  + json
-  + src
+  - - - json
+  - - - src
 >>> New Photos
-  + json
-  + src
+  - - - json
+  - - - src
 >>> Old Photos
-  + json
-  + src
+  - - - json
+  - - - src
 >> styles
 
 >> index.html
