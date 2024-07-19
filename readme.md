@@ -1,6 +1,6 @@
 ```
 ```
-> Public
+- Public
 >> gallery
 >>> Camera
   + json
@@ -15,9 +15,9 @@
 
 >> index.html
 
-> views
-> .gitignore
-> .yaml
-> functions.js
-> index.js
-> listFolder.js
+- views
+- .gitignore
+- .yaml
+- functions.js
+- index.js
+- listFolder.js
