@@ -1,3 +1,5 @@
+```
+```
 > Public
 >> gallery
 >>> Camera
@@ -10,7 +12,9 @@
   + json
   + src
 >> styles
+
 >> index.html
+
 > views
 > .gitignore
 > .yaml

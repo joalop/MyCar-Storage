@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/stylesheet.css">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main"> </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let main = document.getElementById('main');
+
+            fetch('./gallery/New Photos/json/images_new_photos.json')
+                .then(response => response.json())
+                .then(data => {
+                    let images = data.images;
+
+                    for (let i = 0; i < images.length; i++) {
+                        let div = document.createElement('div');
+                        div.id = i;
+
+                        let check = document.createElement('button');
+                        check.textContent = 'Del';
+                        check.name = `${ images[i] }`
+                        check.addEventListener('click', function() {
+                            alert(`Hola ${this.name}`);
+                        });
+
+                        let img = document.createElement('img');
+                        img.id = images[i];
+                        img.src = `./gallery/New Photos/src/${images[i]}`;
+                        img.alt = '';
+
+                        div.appendChild(img);
+                        div.appendChild(check);
+                        main.appendChild(div);
+                    }
+                })
+                .catch(error => console.error('Error loading JSON file:', error));
+        });
+    </script>
+</body>
+</html>

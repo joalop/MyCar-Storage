@@ -6,12 +6,17 @@
     <title>Subir Archivo</title>
 </head>
 <body>
+    <br>
+    <strong> <a href="./OldPhotos.html">Ir a imagenes Viejas</a> </strong>
+    <br><br>
+    <strong> <a href="./NewPhotos.html">Ir a imagenes Nuevas</a> </strong>
+
     <h2>Subir Archivo</h2>
+
     <form id="uploadForm" enctype="multipart/form-data">
         <input type="file" id="fileInput" name="fileInput" accept="image/*">
         
-        <!-- Select para elegir la carpeta de destino -->
-         <strong> <a href="/image1">Ir a imagenes General</a> </strong>
+
         <br><br>
         <label for="folderSelect">Elegir Carpeta de Destino:</label>
         <br>
@@ -21,7 +26,10 @@
         </select>
         <br><br>
         <button type="button" onclick="uploadFile()">Subir Archivo</button>
-        <button type="button" onclick=" CreateFile('public/gallery/Camera/') "> Crear .JSON Camera</button>
+
+        <br><br>
+
+        <button type="button" onclick=" CreateFile('public/gallery/Camera/') " hidden> Crear .JSON Camera</button>
         <button type="button" onclick=" CreateFile('public/gallery/New Photos') "> Crear .JSON New Photos</button>
         <button type="button" onclick=" CreateFile('public/gallery/Old Photos') "> Crear .JSON Old Photos</button>
     </form>

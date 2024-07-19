@@ -13,7 +13,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             let main = document.getElementById('main');
 
-            fetch('./imagenes.json')
+            fetch('./gallery/Old Photos/json/images_Old_photos.json')
                 .then(response => response.json())
                 .then(data => {
                     let images = data.images;
@@ -31,7 +31,7 @@
 
                         let img = document.createElement('img');
                         img.id = images[i];
-                        img.src = `./Camera/${images[i]}`;
+                        img.src = `./gallery/Old Photos/src/${images[i]}`;
                         img.alt = '';
 
                         div.appendChild(img);
