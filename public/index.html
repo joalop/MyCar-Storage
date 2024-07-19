@@ -21,7 +21,9 @@
         </select>
         <br><br>
         <button type="button" onclick="uploadFile()">Subir Archivo</button>
-        <button type="button" onclick="createFile()"> Crear .JSON</button>
+        <button type="button" onclick=" CreateFile('public/gallery/Camera/') "> Crear .JSON Camera</button>
+        <button type="button" onclick=" CreateFile('public/gallery/New Photos') "> Crear .JSON New Photos</button>
+        <button type="button" onclick=" CreateFile('public/gallery/Old Photos') "> Crear .JSON Old Photos</button>
     </form>
     
     <script>
@@ -53,12 +55,19 @@
     </script>
 
     <script>
-        async function createFile(){
-            await fetch('/list',{
+        async function CreateFile(x) {
+            await fetch('/list', {
                 method: 'POST',
-            })
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    site: String(x)
+                })
+            });
         }
     </script>
+    
 
 </body>
 </html>

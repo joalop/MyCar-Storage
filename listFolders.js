@@ -1,27 +1,41 @@
 const fs = require('fs/promises');
 const path = require('path');
 
-function listFolder(directoryPath) {
+function listFolder(directoryPath, result) {
     return new Promise((resolve, reject) => {
         const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp'];
 
-        console.log(`Leyendo el directorio: ${directoryPath}`);
-        fs.readdir(directoryPath)
+        // console.log(`Leyendo el directorio: ${directoryPath}/src`);
+
+        fs.readdir(`${directoryPath}/src/`)
             .then(files => {
                 // console.log(`Archivos encontrados: ${files}`);
 
-                const imageFiles = files.filter(file => {
+                const imageFiles = files.filter( file => {
                     return imageExtensions.includes(path.extname(file).toLowerCase());
                 });
 
                 const jsonOutput = {
-                    totalImages: imageFiles.length,
+                    total: imageFiles.length,
                     images: imageFiles
                 };
+                // -------------------------------
+                var jsonPath;
 
-                const jsonPath = path.join(__dirname, './public/imagenes.json');
-                // console.log(`Escribiendo nombres en el archivo JSON en: ${jsonPath}`);
-                return fs.writeFile(jsonPath, JSON.stringify(jsonOutput, null, 2));
+                if ( result == 'public/gallery/Camera/'){
+                    jsonPath = path.join(__dirname, `./${result}/json/images_camera.json`);
+                    return fs.writeFile(jsonPath, JSON.stringify(jsonOutput, null, 2));
+
+                } else if ( result == 'public/gallery/New Photos' ){
+                    jsonPath = path.join(__dirname, `./${result}/json/images_new_photos.json`);
+                    return fs.writeFile(jsonPath, JSON.stringify(jsonOutput, null, 2));
+
+                } else if ( result == 'public/gallery/Old Photos' ){
+                    jsonPath = path.join(__dirname, `./${result}/json/images_Old_photos.json`);
+                    return fs.writeFile(jsonPath, JSON.stringify(jsonOutput, null, 2));
+
+                } else { console.log('Error en el envio de ruta') }
+
             })
             .then(() => {
                 console.log('El archivo JSON ha sido guardado con éxito.');

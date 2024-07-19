@@ -46,9 +46,29 @@ app.get('/imagenes.json', (req, res) => {
 
 app.post('/list', async (req, res) => {
     try {
-        const cameraPath = path.join(__dirname, 'public', 'gallery', 'Camera');
-        await listFolder(cameraPath);
-        res.status(200).json({ message: 'Listado de imágenes completado' });
+        //console.log(req.body);
+        //console.log(req.body.site);
+        var result = req.body.site;
+        var cameraPath = path.join(__dirname, `${req.body.site}`);
+        //console.log(cameraPath);
+        
+        if ( String(req.body.site) == 'public/gallery/Camera/'){
+            await listFolder(cameraPath, result);
+            res.status(200).json({ message: 'Listado de imágenes completado' });
+
+        } else if ( String(req.body.site) == 'public/gallery/New Photos' ){
+            await listFolder(cameraPath, result);
+            res.status(200).json({ message: 'Listado de imágenes completado' });
+
+        } else if ( String(req.body.site) == 'public/gallery/Old Photos' ){
+            await listFolder(cameraPath, result);
+            res.status(200).json({ message: 'Listado de imágenes completado' });
+            
+        } else {
+            console.log('Error en el envio de ruta')
+        }
+
+
     } catch (error) {
         console.error('Error al listar las imágenes:', error);
         res.status(500).json({ message: 'Error al listar las imágenes', error: error.message });
