@@ -1,6 +1,5 @@
+*** Folder Estructure 
 ```
-PROJECT
-
 |
 | · public
 | | · gallery
