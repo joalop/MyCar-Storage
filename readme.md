@@ -1,19 +1,19 @@
 > Public
 >> gallery
 >>> Camera
->>>> json
->>>> src
++ + + json
++ + + src
 >>> New Photos
->>>> json
->>>> src
++ + + json
++ + + src
 >>> Old Photos
->>>> json
->>>> src
++ + + json
++ + + src
 >> styles
 >> index.html
 > views
-.gitignore
-.yaml
-functions.js
-index.js
-listFolder.js
+> .gitignore
+> .yaml
+> functions.js
+> index.js
+> listFolder.js
